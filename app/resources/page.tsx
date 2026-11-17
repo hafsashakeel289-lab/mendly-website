@@ -1,6 +1,7 @@
 
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 const resources = [
@@ -30,23 +31,7 @@ const resources = [
 export default function ResourcesPage() {
   return (
     <main className="min-h-screen bg-[#FAF7F0] text-[#12352A]">
-      <nav className="flex flex-wrap items-center justify-between gap-5 px-6 py-6 md:px-16">
-        <a href="/" className="text-3xl font-extrabold text-[#1F4D3A]">
-          mendly<span className="text-[#F2B84B]">.</span>
-        </a>
-
-        <div className="flex flex-wrap items-center gap-5 text-sm font-semibold text-[#1F4D3A]">
-          <a href="/platform" className="hover:text-[#F2B84B]">Platform</a>
-          <a href="/how-it-works" className="hover:text-[#F2B84B]">How it works</a>
-          <a href="/about" className="hover:text-[#F2B84B]">About us</a>
-          <a href="/resources" className="hover:text-[#F2B84B]">Resources</a>
-          <a href="/contact" className="rounded-full bg-[#1F4D3A] px-5 py-3 text-white hover:bg-[#12352A]">
-            Let&apos;s Talk →
-          </a>
-        </div>
-      </nav>
-
-      <section className="px-6 pb-20 pt-16 md:px-16 md:pt-24">
+      <section className="px-6 pb-20 pt-20 md:px-16 md:pt-28">
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
@@ -56,10 +41,12 @@ export default function ResourcesPage() {
           <span className="mb-6 inline-block rounded-full bg-[#E4F0E7] px-5 py-2 text-sm font-semibold text-[#1F4D3A]">
             THE MENDLY LIBRARY
           </span>
+
           <h1 className="text-5xl font-extrabold leading-tight tracking-tight md:text-7xl">
             Ideas that move
             <span className="text-[#1F4D3A]"> business forward.</span>
           </h1>
+
           <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-[#52675B]">
             Practical insights, fresh perspectives, and useful guides to help
             you find bottlenecks and make work flow better with AI.
@@ -76,16 +63,23 @@ export default function ResourcesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.12 }}
-              className="rounded-3xl border border-[#A9C9B1]/50 bg-white p-8 shadow-sm transition hover:-translate-y-2 hover:shadow-lg"
+              className="rounded-3xl border border-[#A9C9B1]/50 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-lg"
             >
               <div className="mb-12 flex items-center justify-between">
                 <span className="text-sm font-bold text-[#1F4D3A]">
                   {item.category}
                 </span>
-                <span className="text-sm text-[#A9C9B1]">{item.number}</span>
+                <span className="text-sm text-[#A9C9B1]">
+                  {item.number}
+                </span>
               </div>
+
               <h2 className="mb-4 text-2xl font-bold">{item.title}</h2>
-              <p className="leading-7 text-[#52675B]">{item.description}</p>
+
+              <p className="leading-7 text-[#52675B]">
+                {item.description}
+              </p>
+
               <div className="mt-8 border-t border-[#E4F0E7] pt-5 text-sm font-semibold text-[#1F4D3A]">
                 More coming soon
               </div>
@@ -94,9 +88,20 @@ export default function ResourcesPage() {
         </div>
       </section>
 
-      <footer className="bg-[#12352A] px-6 py-10 text-center text-sm text-[#E4F0E7] md:px-16">
-        © 2026 Mendly. All rights reserved.
-      </footer>
+      <section className="bg-[#E4F0E7] px-6 py-20 text-center md:px-16">
+        <h2 className="text-3xl font-extrabold md:text-5xl">
+          Ready to find your bottleneck?
+        </h2>
+        <p className="mx-auto mt-5 max-w-xl leading-7 text-[#52675B]">
+          Let&apos;s explore how AI can make your business work better.
+        </p>
+        <Link
+          href="/contact"
+          className="mt-8 inline-block rounded-full bg-[#1F4D3A] px-8 py-4 font-semibold text-white transition duration-300 hover:-translate-y-1 hover:bg-[#F2B84B] hover:text-[#12352A]"
+        >
+          Let&apos;s talk →
+        </Link>
+      </section>
     </main>
   );
 }

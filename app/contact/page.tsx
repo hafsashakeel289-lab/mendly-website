@@ -6,23 +6,7 @@ import { motion } from "framer-motion";
 export default function ContactPage() {
   return (
     <main className="min-h-screen bg-[#FAF7F0] text-[#12352A]">
-      <nav className="flex flex-wrap items-center justify-between gap-5 px-6 py-6 md:px-16">
-        <a href="/" className="text-3xl font-extrabold text-[#1F4D3A]">
-          mendly<span className="text-[#F2B84B]">.</span>
-        </a>
-
-        <div className="flex flex-wrap items-center gap-5 text-sm font-semibold text-[#1F4D3A]">
-          <a href="/platform" className="hover:text-[#F2B84B]">Platform</a>
-          <a href="/how-it-works" className="hover:text-[#F2B84B]">How it works</a>
-          <a href="/about" className="hover:text-[#F2B84B]">About us</a>
-          <a href="/resources" className="hover:text-[#F2B84B]">Resources</a>
-          <a href="/contact" className="rounded-full bg-[#1F4D3A] px-5 py-3 text-white hover:bg-[#12352A]">
-            Let&apos;s Talk →
-          </a>
-        </div>
-      </nav>
-
-      <section className="px-6 pb-24 pt-16 md:px-16 md:pt-24">
+      <section className="px-6 pb-24 pt-20 md:px-16 md:pt-28">
         <div className="mx-auto grid max-w-6xl items-center gap-16 md:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, y: 25 }}
@@ -35,7 +19,9 @@ export default function ContactPage() {
 
             <h1 className="mt-7 text-5xl font-extrabold leading-tight md:text-7xl">
               Let&apos;s mend
-              <span className="text-[#1F4D3A]"> what&apos;s slowing you down.</span>
+              <span className="text-[#1F4D3A]">
+                {" "}what&apos;s slowing you down.
+              </span>
             </h1>
 
             <p className="mt-7 max-w-lg text-lg leading-8 text-[#52675B]">
@@ -81,7 +67,7 @@ export default function ContactPage() {
                   type="text"
                   required
                   placeholder="Enter your name"
-                  className="w-full rounded-xl border border-[#A9C9B1] bg-[#FAF7F0] px-4 py-4 outline-none transition focus:border-[#1F4D3A]"
+                  className="w-full rounded-xl border border-[#A9C9B1] bg-[#FAF7F0] px-4 py-4 outline-none transition focus:border-[#1F4D3A] focus:ring-2 focus:ring-[#A9C9B1]/40"
                 />
               </div>
 
@@ -95,7 +81,7 @@ export default function ContactPage() {
                   type="email"
                   required
                   placeholder="you@company.com"
-                  className="w-full rounded-xl border border-[#A9C9B1] bg-[#FAF7F0] px-4 py-4 outline-none transition focus:border-[#1F4D3A]"
+                  className="w-full rounded-xl border border-[#A9C9B1] bg-[#FAF7F0] px-4 py-4 outline-none transition focus:border-[#1F4D3A] focus:ring-2 focus:ring-[#A9C9B1]/40"
                 />
               </div>
 
@@ -109,29 +95,25 @@ export default function ContactPage() {
                   required
                   rows={5}
                   placeholder="Tell us about a challenge in your business..."
-                  className="w-full resize-none rounded-xl border border-[#A9C9B1] bg-[#FAF7F0] px-4 py-4 outline-none transition focus:border-[#1F4D3A]"
+                  className="w-full resize-none rounded-xl border border-[#A9C9B1] bg-[#FAF7F0] px-4 py-4 outline-none transition focus:border-[#1F4D3A] focus:ring-2 focus:ring-[#A9C9B1]/40"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full rounded-full bg-[#1F4D3A] px-7 py-4 font-semibold text-white transition hover:bg-[#12352A]"
+                className="w-full rounded-full bg-[#1F4D3A] px-7 py-4 font-semibold text-white transition duration-300 hover:-translate-y-1 hover:bg-[#F2B84B] hover:text-[#12352A]"
               >
                 Send Message →
               </button>
             </form>
 
             <p className="mt-4 text-xs leading-5 text-[#718477]">
-              Contact form is a visual prototype for now. Email delivery needs
-              to be configured before launch.
+              Email delivery needs to be configured before launch. The form
+              currently uses your email application.
             </p>
           </motion.div>
         </div>
       </section>
-
-      <footer className="bg-[#12352A] px-6 py-10 text-center text-sm text-[#E4F0E7] md:px-16">
-        © 2026 Mendly. All rights reserved.
-      </footer>
     </main>
   );
 }
