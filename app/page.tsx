@@ -13,9 +13,8 @@ const C = {
   white: "#FFFFFF",
   green: "#526B60",
 };
-
 const buttonStyle =
-  "inline-flex items-center justify-center rounded-full bg-[#17191B] px-7 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#526B60] hover:shadow-xl";
+  "inline-flex items-center justify-center rounded-full bg-[#F2B84B] px-8 py-5 text-[#17191B] hover:bg-[#E5AA3D] hover:-translate-y-1 transition-all duration-300";
 
 const sectionStyle =
   "flex items-center px-6 py-20 lg:px-10 lg:py-24";
@@ -234,9 +233,7 @@ export default function Home() {
                     </h2>
                   </div>
 
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#DCE8E3] text-2xl text-[#17191B]">
-                    ✳
-                  </div>
+                 
                 </div>
 
                 {/* Workflow connection */}
@@ -349,13 +346,13 @@ export default function Home() {
       </section>
 
       {/* TRUSTED BY */}
-      <section className={`${sectionStyle} overflow-hidden bg-[#FFFFFF]`}>
+      <section className="overflow-hidden bg-[#F4F1E9] px-6 py-10 lg:px-10 lg:py-12">
         <div className="mx-auto w-full max-w-7xl">
           <div className="text-center">
             <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#526B60]">
               TRUSTED BY FORWARD-THINKING TEAMS
             </p>
-            <h2 className="mt-4 text-3xl font-semibold text-[#17191B] sm:text-4xl">
+            <h2 className="mt-3 text-3xl font-semibold text-[#17191B] sm:text-4xl">
               Built for businesses ready to move forward.
             </h2>
             <p className="mt-3 text-sm text-[#454545]">
@@ -363,7 +360,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="relative mt-16 overflow-hidden">
+          <div className="relative mt-8 overflow-hidden">
             <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white to-transparent sm:w-28" />
             <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white to-transparent sm:w-28" />
 
@@ -432,9 +429,7 @@ export default function Home() {
                     Connected operations
                   </h3>
                 </div>
-                <span className="rounded-xl bg-[#DCE8E3] p-3 text-xl text-[#17191B]">
-                  ✳
-                </span>
+                
               </div>
 
               <div className="mt-6 grid grid-cols-2 gap-4">
@@ -777,14 +772,14 @@ export default function Home() {
             smarter workflows could make a real difference.
           </p>
           <Link
-            href="/contact"
-            className="mt-9 inline-flex rounded-full bg-[#17191B] px-8 py-4 font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#526B60] hover:shadow-xl"
-          >
-            Let’s talk about your business ↗
-          </Link>
+  href="/contact"
+  className="mt-9 inline-flex items-center justify-center rounded-full bg-[#F2B84B] px-8 py-5 font-bold text-[#17191B] transition-all duration-300 hover:-translate-y-1 hover:bg-[#E5AA3D] hover:shadow-xl"
+>
+  Let’s talk about your business ↗
+</Link>
         </motion.div>
       </section>
-
     </main>
   );
 }
+

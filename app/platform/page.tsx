@@ -28,8 +28,9 @@ const solutions = [
   },
 ];
 
+
 const buttonStyle =
-  "mt-9 inline-block rounded-full bg-[#1F4D3A] px-8 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#F2B84B] hover:text-[#12352A] hover:shadow-lg";
+  "mt-9 inline-flex items-center justify-center rounded-full bg-[#F2B84B] px-8 py-5 font-bold text-[#17191B] transition-all duration-300 hover:-translate-y-1 hover:bg-[#E5AA3D] hover:shadow-xl";
 
 export default function PlatformPage() {
   return (
