@@ -4,14 +4,18 @@
 @import "tailwindcss";
 
 :root {
-  --forest: #1F4D3A;
-  --pine: #12352A;
-  --sage: #A9C9B1;
-  --mint: #E4F0E7;
-  --cream: #FAF7F0;
-  --marigold: #F2B84B;
-  --background: #FAF7F0;
-  --foreground: #12352A;
+  --forest: #526B60;
+  --pine: #17191B;
+  --sage: #DCE8E3;
+  --mint: #DCE8E3;
+  --cream: #F4F1E9;
+  --marigold: #526B60;
+
+  --background: #F4F1E9;
+  --foreground: #17191B;
+  --muted: #454545;
+  --soft-grey: #E8E8E2;
+  --white: #FFFFFF;
 }
 
 * {
@@ -37,6 +41,7 @@ h4,
 h5,
 h6 {
   font-family: 'Manrope', sans-serif;
+  color: var(--pine);
 }
 
 a {
@@ -46,8 +51,7 @@ a {
 
 button {
   cursor: pointer;
-  transition:
-    color 250ms ease,
+  transition: color 250ms ease,
     background-color 250ms ease,
     border-color 250ms ease,
     transform 250ms ease,
@@ -79,7 +83,7 @@ img {
 }
 
 :focus-visible {
-  outline: 3px solid var(--marigold);
+  outline: 3px solid var(--sage);
   outline-offset: 3px;
 }
 

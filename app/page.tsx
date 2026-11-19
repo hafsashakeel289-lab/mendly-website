@@ -1,10 +1,24 @@
+
 "use client";
 
 import Link from "next/link";
 import { motion } from "framer-motion";
 
+const C = {
+  cream: "#F4F1E9",
+  sage: "#DCE8E3",
+  grey: "#E8E8E2",
+  charcoal: "#17191B",
+  body: "#454545",
+  white: "#FFFFFF",
+  green: "#526B60",
+};
+
 const buttonStyle =
-  "inline-flex items-center justify-center rounded-full bg-[#625BEE] px-7 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#4942D0] hover:shadow-xl";
+  "inline-flex items-center justify-center rounded-full bg-[#17191B] px-7 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#526B60] hover:shadow-xl";
+
+const sectionStyle =
+  "flex items-center px-6 py-20 lg:px-10 lg:py-24";
 
 const features = [
   {
@@ -33,21 +47,27 @@ const features = [
 const process = [
   {
     number: "01",
-    title: "Understand the challenge",
+    title: "Understand your business",
     description:
-      "We learn how your business works, listen to your team, and find where time and effort are being lost.",
+      "We learn how your business works, listen to your team, and identify where time and effort are being lost.",
   },
   {
     number: "02",
-    title: "Design a smarter approach",
+    title: "Find the right opportunity",
     description:
-      "We identify opportunities and shape an AI solution around your actual processes and goals.",
+      "We identify bottlenecks and discover where automation and AI can make the biggest difference.",
   },
   {
     number: "03",
-    title: "Make it work for you",
+    title: "Build your solution",
     description:
-      "We help bring the solution into your workflow so your team can focus on higher-value work.",
+      "We shape a practical AI solution around your existing processes, tools, and business goals.",
+  },
+  {
+    number: "04",
+    title: "Improve and grow",
+    description:
+      "We help bring the solution into your workflow so your team can focus on meaningful work.",
   },
 ];
 
@@ -91,203 +111,254 @@ const integrations = [
   "WORKFLOW TOOLS",
 ];
 
-const sectionStyle =
-  "flex min-h-[680px] items-center px-6 py-20 lg:px-10 lg:py-24";
-
 export default function Home() {
   const logos = [...sampleCompanies, ...sampleCompanies];
 
   return (
-    <main className="overflow-hidden bg-[#F7F8FC] text-[#20243A]">
+    <main className="overflow-hidden bg-[#F4F1E9] text-[#17191B]">
 
-      {/* HERO */}
-      <section className="relative flex min-h-[680px] items-center overflow-hidden bg-[#20243A] px-6 py-20 text-white lg:px-10">
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -left-40 top-10 h-[420px] w-[420px] rounded-full bg-[#625BEE]/40 blur-[120px]" />
-          <div className="absolute -right-20 bottom-0 h-[450px] w-[450px] rounded-full bg-[#A99BFF]/25 blur-[120px]" />
-          <div className="absolute inset-0 opacity-[0.08] [background-image:radial-gradient(#FFFFFF_1px,transparent_1px)] [background-size:28px_28px]" />
+      {/* HERO SECTION */}
+      <section className="relative flex min-h-[760px] items-center overflow-hidden bg-[#F4F1E9] px-6 py-24 lg:px-10">
+
+        {/* Soft background effects */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute -left-40 top-10 h-[420px] w-[420px] rounded-full bg-[#DCE8E3] opacity-60 blur-[120px]" />
+          <div className="absolute -right-20 bottom-0 h-[450px] w-[450px] rounded-full bg-[#E8E8E2] opacity-80 blur-[120px]" />
+          <div className="absolute inset-0 opacity-[0.12] [background-image:radial-gradient(#526B60_1px,transparent_1px)] [background-size:28px_28px]" />
         </div>
 
-        <div className="relative mx-auto grid w-full max-w-7xl items-center gap-16 lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="relative mx-auto grid w-full max-w-7xl items-center gap-16 lg:grid-cols-2">
+
+          {/* Hero content */}
           <motion.div
             initial={{ opacity: 0, y: 35 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="relative z-10"
           >
-            <div className="mb-7 inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm text-[#DCD9FF] backdrop-blur-md">
-              <span className="h-2 w-2 rounded-full bg-[#A99BFF] shadow-[0_0_14px_#A99BFF]" />
-              Practical AI for better business
+            <div className="mb-7 inline-flex items-center gap-3 rounded-full border border-[#DCE8E3] bg-white/80 px-4 py-2 text-sm font-medium text-[#526B60] shadow-sm">
+              <motion.span
+                animate={{ scale: [1, 1.4, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="h-2 w-2 rounded-full bg-[#526B60]"
+              />
+              AI that works around your business
             </div>
 
-            <h1 className="max-w-2xl text-5xl font-semibold leading-[1.08] tracking-tight sm:text-6xl lg:text-[70px]">
-              Your business has a{" "}
-              <span className="font-serif italic text-[#A99BFF]">
-                smarter
-              </span>{" "}
-              way to work.
+            <h1 className="max-w-2xl text-5xl font-semibold leading-[1.08] tracking-tight text-[#17191B] sm:text-6xl lg:text-[72px]">
+              Find the friction.
+              <br />
+              <span className="font-serif italic text-[#526B60]">
+                Mend the work.
+              </span>
             </h1>
 
-            <p className="mt-7 max-w-xl text-lg leading-8 text-[#D5D7E7]">
-              We find your biggest bottleneck and mend it with AI. Less
-              repetitive work, more connected processes, and more room for
-              your business to grow.
+            <p className="mt-7 max-w-xl text-lg leading-8 text-[#454545]">
+              We find your biggest bottleneck and mend it with AI. Connect
+              your processes, reduce repetitive work, and give your team
+              more room to do what matters.
             </p>
 
             <div className="mt-9 flex flex-wrap gap-4">
-              <Link
-                href="/contact"
-                className="rounded-full bg-[#625BEE] px-7 py-4 font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#A99BFF] hover:text-[#20243A] hover:shadow-xl"
-              >
+              <Link href="/contact" className={buttonStyle}>
                 Find your bottleneck ↗
               </Link>
 
               <a
                 href="#how-it-works"
-                className="rounded-full border border-white/30 px-7 py-4 font-semibold text-white transition-all duration-300 hover:border-[#A99BFF] hover:bg-white/10"
+                className="rounded-full border border-[#526B60]/40 bg-white/60 px-7 py-4 font-semibold text-[#17191B] transition-all duration-300 hover:-translate-y-1 hover:border-[#526B60] hover:bg-[#DCE8E3]"
               >
                 See how it works
               </a>
             </div>
 
-            <div className="mt-10 flex flex-wrap gap-x-7 gap-y-3 text-sm text-[#C3C5D8]">
-              <span>✓ Business-first approach</span>
+            <div className="mt-10 flex flex-wrap gap-x-7 gap-y-3 text-sm font-medium text-[#526B60]">
+              <span>✓ Built around your business</span>
               <span>✓ Practical AI solutions</span>
             </div>
           </motion.div>
 
-          {/* 3D WORKFLOW DASHBOARD */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.85, x: 35 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="relative mx-auto w-full max-w-[570px] [perspective:1400px]"
-          >
+          {/* Animated workflow visual */}
+          <div className="relative mx-auto w-full max-w-[560px] [perspective:1200px]">
+
+            {/* Orbit rings */}
             <motion.div
-              animate={{
-                y: [0, -12, 0],
-                rotateY: [0, -3, 0],
-                rotateX: [0, 2, 0],
-              }}
-              transition={{
-                duration: 7,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              style={{ transformStyle: "preserve-3d" }}
-              className="relative rounded-[2rem] border border-white/20 bg-white/[0.11] p-4 shadow-[0_40px_100px_rgba(0,0,0,0.35)] backdrop-blur-2xl sm:p-6"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+              className="absolute left-1/2 top-1/2 h-[440px] w-[440px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-[#526B60]/30"
+            />
+
+            <motion.div
+              animate={{ rotate: -360 }}
+              transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
+              className="absolute left-1/2 top-1/2 h-[360px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#526B60]/20"
+            />
+
+            {/* Orbiting accent */}
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+              className="absolute left-1/2 top-1/2 h-[440px] w-[440px] -translate-x-1/2 -translate-y-1/2"
             >
-              <div className="flex items-center justify-between border-b border-white/15 pb-5">
-                <div>
-                  <p className="text-xs font-bold tracking-[0.2em] text-[#A99BFF]">
-                    MENDLY INTELLIGENCE
-                  </p>
-                  <h2 className="mt-2 text-xl font-semibold text-white">
-                    Workflow overview
-                  </h2>
-                </div>
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#625BEE] text-2xl text-white shadow-lg shadow-[#625BEE]/30">
-                  ✳
-                </div>
-              </div>
+              <div className="absolute left-1/2 top-0 h-4 w-4 rounded-full bg-[#526B60] shadow-[0_0_25px_#DCE8E3]" />
+            </motion.div>
 
-              <div className="mt-6 rounded-2xl border border-white/10 bg-[#20243A]/80 p-5">
-                <div className="flex items-center justify-between">
-                  <p className="text-sm text-[#C3C5D8]">
-                    Workflow efficiency
-                  </p>
-                  <span className="rounded-full bg-[#DDF5EE]/10 px-3 py-1 text-xs text-[#DDF5EE]">
-                    Preview
-                  </span>
+            {/* Main dashboard */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, rotateY: 15 }}
+              animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="relative z-10"
+            >
+              <motion.div
+                animate={{
+                  y: [0, -12, 0],
+                  rotateX: [0, 2, 0],
+                  rotateY: [0, -2, 0],
+                }}
+                transition={{
+                  duration: 7,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                style={{ transformStyle: "preserve-3d" }}
+                className="rounded-[2rem] border border-[#E8E8E2] bg-white/95 p-5 text-[#17191B] shadow-[0_35px_100px_rgba(23,25,27,0.16)] backdrop-blur-2xl sm:p-7"
+              >
+                <div className="flex items-center justify-between border-b border-[#E8E8E2] pb-5">
+                  <div>
+                    <p className="text-xs font-bold tracking-[0.2em] text-[#526B60]">
+                      MENDLY INTELLIGENCE
+                    </p>
+                    <h2 className="mt-2 text-xl font-semibold text-[#17191B]">
+                      Your workflow, improved.
+                    </h2>
+                  </div>
+
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#DCE8E3] text-2xl text-[#17191B]">
+                    ✳
+                  </div>
                 </div>
 
-                <div className="mt-5 flex items-end gap-3">
-                  <span className="text-5xl font-semibold text-white">
-                    86%
-                  </span>
-                  <span className="pb-2 text-sm text-[#A99BFF]">
-                    Illustrative score
-                  </span>
-                </div>
-
-                <div className="mt-5 h-3 overflow-hidden rounded-full bg-white/10">
-                  <motion.div
-                    initial={{ width: "0%" }}
-                    animate={{ width: "86%" }}
-                    transition={{ duration: 1.8, delay: 0.7 }}
-                    className="h-full rounded-full bg-gradient-to-r from-[#625BEE] to-[#A99BFF]"
-                  />
-                </div>
-              </div>
-
-              <div className="mt-5 grid grid-cols-2 gap-3">
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-xs text-[#C3C5D8]">Tasks identified</p>
-                  <p className="mt-2 text-2xl font-semibold text-white">12</p>
-                </div>
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-xs text-[#C3C5D8]">Opportunities</p>
-                  <p className="mt-2 text-2xl font-semibold text-white">08</p>
-                </div>
-              </div>
-
-              <div className="mt-5 space-y-3">
-                {[
-                  ["01", "Repetitive admin tasks", "Opportunity found"],
-                  ["02", "Disconnected workflows", "Needs attention"],
-                  ["03", "Customer follow-ups", "Ready to improve"],
-                ].map((item) => (
-                  <div
-                    key={item[0]}
-                    className="flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/5 p-3"
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className="text-xs text-[#A99BFF]">
-                        {item[0]}
-                      </span>
-                      <span className="text-sm text-white">{item[1]}</span>
+                {/* Workflow connection */}
+                <div className="mt-7 grid grid-cols-3 items-center gap-2">
+                  {[
+                    ["01", "Your team"],
+                    ["02", "Mendly AI"],
+                    ["03", "Better flow"],
+                  ].map((item, index) => (
+                    <div key={item[0]} className="relative text-center">
+                      <motion.div
+                        animate={{
+                          borderColor: [
+                            "rgba(82,107,96,0.15)",
+                            "rgba(82,107,96,0.65)",
+                            "rgba(82,107,96,0.15)",
+                          ],
+                        }}
+                        transition={{
+                          duration: 3,
+                          repeat: Infinity,
+                          delay: index * 0.5,
+                        }}
+                        className="rounded-2xl border bg-[#F4F1E9] px-2 py-5"
+                      >
+                        <span className="text-xs font-semibold text-[#526B60]">
+                          {item[0]}
+                        </span>
+                        <p className="mt-2 text-xs font-semibold text-[#17191B] sm:text-sm">
+                          {item[1]}
+                        </p>
+                      </motion.div>
                     </div>
-                    <span className="text-right text-xs text-[#C3C5D8]">
-                      {item[2]}
+                  ))}
+                </div>
+
+                {/* Workflow status */}
+                <div className="mt-6 rounded-2xl border border-[#E8E8E2] bg-[#F4F1E9] p-5">
+                  <div className="flex items-center justify-between gap-2">
+                    <p className="text-sm font-semibold text-[#17191B]">
+                      Workflow analysis
+                    </p>
+                    <span className="rounded-full bg-[#DCE8E3] px-3 py-1 text-xs font-medium text-[#526B60]">
+                      Live preview
                     </span>
                   </div>
-                ))}
-              </div>
+
+                  <div className="mt-5 space-y-4">
+                    {[
+                      ["Repetitive tasks", "Identify"],
+                      ["Disconnected tools", "Connect"],
+                      ["Manual processes", "Improve"],
+                    ].map((item, index) => (
+                      <div key={item[0]}>
+                        <div className="mb-2 flex justify-between gap-3 text-sm">
+                          <span className="text-[#454545]">{item[0]}</span>
+                          <span className="font-medium text-[#526B60]">{item[1]}</span>
+                        </div>
+                        <div className="h-2 overflow-hidden rounded-full bg-[#E8E8E2]">
+                          <motion.div
+                            initial={{ width: "0%" }}
+                            animate={{ width: `${85 - index * 15}%` }}
+                            transition={{
+                              duration: 1.5,
+                              delay: 0.8 + index * 0.2,
+                            }}
+                            className="h-full rounded-full bg-[#526B60]"
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-5 flex items-center justify-between rounded-xl bg-[#DCE8E3] p-4">
+                  <div>
+                    <p className="text-xs font-medium text-[#526B60]">
+                      The goal
+                    </p>
+                    <p className="mt-1 font-semibold text-[#17191B]">
+                      More time for meaningful work
+                    </p>
+                  </div>
+                  <span className="text-2xl text-[#526B60]">↗</span>
+                </div>
+              </motion.div>
             </motion.div>
 
-            {/* FLOATING 3D CARDS */}
+            {/* Floating card one */}
             <motion.div
-              animate={{ y: [0, -14, 0], rotate: [-5, -2, -5] }}
+              animate={{ y: [0, -13, 0], rotate: [-4, -2, -4] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -left-7 top-24 hidden rounded-2xl border border-[#625BEE]/20 bg-white p-4 text-[#20243A] shadow-2xl sm:block"
+              className="absolute -left-5 top-20 z-20 hidden rounded-2xl border border-[#E8E8E2] bg-white p-4 text-[#17191B] shadow-xl sm:block"
             >
-              <span className="text-xs text-[#777B91]">Smart automation</span>
-              <p className="mt-1 font-semibold">Less busywork ↗</p>
+              <p className="text-xs text-[#454545]">Opportunity found</p>
+              <p className="mt-1 font-bold">Less manual work ✳</p>
             </motion.div>
 
+            {/* Floating card two */}
             <motion.div
-              animate={{ y: [0, 13, 0], rotate: [4, 1, 4] }}
+              animate={{ y: [0, 12, 0], rotate: [4, 1, 4] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-7 right-0 rounded-2xl border border-[#A99BFF]/30 bg-[#DDF5EE] p-4 text-[#20243A] shadow-2xl"
+              className="absolute -bottom-5 right-0 z-20 rounded-2xl border border-[#E8E8E2] bg-[#DCE8E3] p-4 text-[#17191B] shadow-xl"
             >
-              <span className="text-xs text-[#62677D]">The Mendly goal</span>
-              <p className="mt-1 font-semibold">More room to grow ✳</p>
+              <p className="text-xs text-[#454545]">A smarter workflow</p>
+              <p className="mt-1 font-bold">Connected by AI ↗</p>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* TRUSTED BY */}
-      <section className={`${sectionStyle} overflow-hidden bg-white`}>
+      <section className={`${sectionStyle} overflow-hidden bg-[#FFFFFF]`}>
         <div className="mx-auto w-full max-w-7xl">
           <div className="text-center">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#777B91]">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#526B60]">
               TRUSTED BY FORWARD-THINKING TEAMS
             </p>
-            <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">
+            <h2 className="mt-4 text-3xl font-semibold text-[#17191B] sm:text-4xl">
               Built for businesses ready to move forward.
             </h2>
-            <p className="mt-3 text-sm text-[#777B91]">
+            <p className="mt-3 text-sm text-[#454545]">
               Illustrative company names for design preview only.
             </p>
           </div>
@@ -299,16 +370,19 @@ export default function Home() {
             <motion.div
               animate={{ x: ["0%", "-50%"] }}
               transition={{
-                duration: 32,
+                duration: 45,
                 repeat: Infinity,
                 ease: "linear",
+                repeatType: "loop",
               }}
+              whileHover={{}}
               className="flex w-max items-center gap-14 whitespace-nowrap"
             >
+
               {logos.map((company, index) => (
                 <span
                   key={`${company}-${index}`}
-                  className="text-xl font-extrabold tracking-[0.16em] text-[#A0A3B4] sm:text-2xl"
+                  className="text-xl font-extrabold tracking-[0.16em] text-[#526B60] sm:text-2xl"
                 >
                   {company}
                 </span>
@@ -319,7 +393,7 @@ export default function Home() {
       </section>
 
       {/* PLATFORM */}
-      <section className={`${sectionStyle} bg-[#F7F8FC]`}>
+      <section className={`${sectionStyle} bg-[#DCE8E3]`}>
         <div className="mx-auto w-full max-w-7xl">
           <div className="grid items-center gap-14 lg:grid-cols-2">
             <motion.div
@@ -327,13 +401,13 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#625BEE]">
+              <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#526B60]">
                 THE MENDLY PLATFORM
               </p>
-              <h2 className="mt-5 text-4xl font-semibold leading-tight sm:text-5xl">
+              <h2 className="mt-5 text-4xl font-semibold leading-tight text-[#17191B] sm:text-5xl">
                 Technology should make business easier.
               </h2>
-              <p className="mt-6 max-w-xl text-lg leading-8 text-[#777B91]">
+              <p className="mt-6 max-w-xl text-lg leading-8 text-[#454545]">
                 From everyday processes to customer interactions, we help
                 identify where thoughtful automation can make a difference.
               </p>
@@ -347,18 +421,18 @@ export default function Home() {
               whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="rounded-[2rem] border border-[#E2E4EF] bg-white p-6 shadow-[0_25px_80px_rgba(32,36,58,0.09)]"
+              className="rounded-[2rem] border border-white/80 bg-white p-6 shadow-[0_25px_80px_rgba(23,25,27,0.09)]"
             >
-              <div className="flex items-center justify-between border-b border-[#ECECF3] pb-5">
+              <div className="flex items-center justify-between border-b border-[#E8E8E2] pb-5">
                 <div>
-                  <p className="text-xs font-bold tracking-widest text-[#625BEE]">
+                  <p className="text-xs font-bold tracking-widest text-[#526B60]">
                     MENDLY PLATFORM
                   </p>
-                  <h3 className="mt-2 text-xl font-semibold">
+                  <h3 className="mt-2 text-xl font-semibold text-[#17191B]">
                     Connected operations
                   </h3>
                 </div>
-                <span className="rounded-xl bg-[#EEEDFF] p-3 text-xl text-[#625BEE]">
+                <span className="rounded-xl bg-[#DCE8E3] p-3 text-xl text-[#17191B]">
                   ✳
                 </span>
               </div>
@@ -372,13 +446,15 @@ export default function Home() {
                 ].map((item) => (
                   <div
                     key={item[0]}
-                    className="rounded-2xl bg-[#F7F8FC] p-5"
+                    className="rounded-2xl bg-[#F4F1E9] p-5 transition hover:-translate-y-1 hover:bg-[#DCE8E3]"
                   >
-                    <span className="text-xs font-bold text-[#625BEE]">
+                    <span className="text-xs font-bold text-[#526B60]">
                       {item[0]}
                     </span>
-                    <h4 className="mt-4 font-semibold">{item[1]}</h4>
-                    <p className="mt-2 text-sm leading-6 text-[#777B91]">
+                    <h4 className="mt-4 font-semibold text-[#17191B]">
+                      {item[1]}
+                    </h4>
+                    <p className="mt-2 text-sm leading-6 text-[#454545]">
                       {item[2]}
                     </p>
                   </div>
@@ -395,18 +471,18 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.12 }}
-                className="rounded-[2rem] border border-[#E2E4EF] bg-white p-7 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+                className="rounded-[2rem] border border-white/80 bg-white p-7 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
               >
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#EEEDFF] text-3xl text-[#625BEE]">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#DCE8E3] text-3xl text-[#526B60]">
                   {feature.icon}
                 </div>
-                <p className="mt-7 text-sm font-bold text-[#A99BFF]">
+                <p className="mt-7 text-sm font-bold text-[#526B60]">
                   {feature.number}
                 </p>
-                <h3 className="mt-3 text-2xl font-semibold">
+                <h3 className="mt-3 text-2xl font-semibold text-[#17191B]">
                   {feature.title}
                 </h3>
-                <p className="mt-4 leading-7 text-[#777B91]">
+                <p className="mt-4 leading-7 text-[#454545]">
                   {feature.description}
                 </p>
               </motion.div>
@@ -416,37 +492,45 @@ export default function Home() {
       </section>
 
       {/* INTRO / BRAND STORY */}
-      <section className={`${sectionStyle} bg-[#20243A] text-white`}>
+      <section className={`${sectionStyle} bg-[#E8E8E2]`}>
         <div className="mx-auto grid w-full max-w-7xl items-center gap-14 lg:grid-cols-2">
-          <div>
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#A99BFF]">
+          <motion.div
+            initial={{ opacity: 0, x: -25 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#526B60]">
               MEET MENDLY
             </p>
-            <h2 className="mt-5 text-4xl font-semibold leading-tight sm:text-5xl">
+            <h2 className="mt-5 text-4xl font-semibold leading-tight text-[#17191B] sm:text-5xl">
               Better systems start with understanding your business.
             </h2>
-            <p className="mt-6 text-lg leading-8 text-[#D5D7E7]">
+            <p className="mt-6 text-lg leading-8 text-[#454545]">
               We look at the way your business works, find the friction points,
               and bring practical AI solutions into the picture. The goal is
               simple: make everyday work feel easier.
             </p>
-            <Link
-              href="/about"
-              className="mt-9 inline-flex rounded-full border border-white/30 px-7 py-4 font-semibold text-white transition hover:border-[#A99BFF] hover:bg-white/10"
-            >
+            <Link href="/about" className={`mt-9 ${buttonStyle}`}>
               Get to know Mendly ↗
             </Link>
-          </div>
+          </motion.div>
 
-          <div className="relative mx-auto w-full max-w-lg">
-            <div className="absolute -inset-5 rounded-[3rem] bg-[#625BEE]/30 blur-3xl" />
-            <div className="relative rounded-[2rem] border border-white/15 bg-white/10 p-7 backdrop-blur-xl">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative mx-auto w-full max-w-lg"
+          >
+            <div className="absolute -inset-5 rounded-[3rem] bg-[#DCE8E3] blur-3xl opacity-70" />
+            <div className="relative rounded-[2rem] border border-white bg-white p-7 shadow-xl">
               <div className="flex items-center justify-between">
-                <span className="text-sm font-semibold text-[#A99BFF]">
+                <span className="text-sm font-semibold text-[#526B60]">
                   THE MENDLY APPROACH
                 </span>
-                <span className="text-2xl">✳</span>
+                <span className="text-2xl text-[#526B60]">✳</span>
               </div>
+
               <div className="mt-8 space-y-5">
                 {[
                   ["01", "Find the bottleneck"],
@@ -455,34 +539,36 @@ export default function Home() {
                 ].map((item, index) => (
                   <div
                     key={item[0]}
-                    className="flex items-center gap-5 rounded-2xl border border-white/10 bg-white/5 p-5"
+                    className="flex items-center gap-5 rounded-2xl border border-[#E8E8E2] bg-[#F4F1E9] p-5"
                   >
-                    <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#625BEE] font-bold">
+                    <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#DCE8E3] font-bold text-[#17191B]">
                       {item[0]}
                     </span>
-                    <span className="font-semibold">{item[1]}</span>
+                    <span className="font-semibold text-[#17191B]">
+                      {item[1]}
+                    </span>
                     {index === 2 && (
-                      <span className="ml-auto text-[#A99BFF]">↗</span>
+                      <span className="ml-auto text-[#526B60]">↗</span>
                     )}
                   </div>
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* BENEFITS */}
-      <section className={`${sectionStyle} bg-[#DDF5EE]`}>
+      <section className={`${sectionStyle} bg-[#F4F1E9]`}>
         <div className="mx-auto grid w-full max-w-7xl items-center gap-14 lg:grid-cols-2">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#625BEE]">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#526B60]">
               WHY MENDLY
             </p>
-            <h2 className="mt-5 text-4xl font-semibold leading-tight sm:text-5xl">
+            <h2 className="mt-5 text-4xl font-semibold leading-tight text-[#17191B] sm:text-5xl">
               Less complexity. More meaningful progress.
             </h2>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-[#62677D]">
+            <p className="mt-6 max-w-xl text-lg leading-8 text-[#454545]">
               Good technology should fit into your business, support your
               people, and solve problems that actually matter.
             </p>
@@ -499,14 +585,16 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.12 }}
-                className="flex gap-5 rounded-3xl border border-[#C9E8DD] bg-white p-6"
+                className="flex gap-5 rounded-3xl border border-[#E8E8E2] bg-white p-6 transition-all hover:-translate-y-1 hover:shadow-lg"
               >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#EEEDFF] text-2xl text-[#625BEE]">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#DCE8E3] text-2xl text-[#526B60]">
                   {benefit.icon}
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold">{benefit.title}</h3>
-                  <p className="mt-2 leading-7 text-[#777B91]">
+                  <h3 className="text-xl font-semibold text-[#17191B]">
+                    {benefit.title}
+                  </h3>
+                  <p className="mt-2 leading-7 text-[#454545]">
                     {benefit.description}
                   </p>
                 </div>
@@ -515,17 +603,68 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* MENDLY IMPACT */}
+<section className={`${sectionStyle} bg-white`}>
+  <div className="mx-auto w-full max-w-7xl">
+    <div className="mx-auto max-w-3xl text-center">
+      <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#526B60]">
+        THE MENDLY DIFFERENCE
+      </p>
+      <h2 className="mt-5 text-4xl font-semibold leading-tight text-[#17191B] sm:text-5xl">
+        Make more room for meaningful work.
+      </h2>
+      <p className="mt-6 text-lg leading-8 text-[#454545]">
+        Better workflows start by understanding what is slowing your team down.
+      </p>
+    </div>
+
+    <div className="mt-14 grid gap-6 md:grid-cols-3">
+      {[
+        {
+          number: "01",
+          title: "Find the friction",
+          description: "Identify repetitive tasks, disconnected tools, and workflow bottlenecks.",
+        },
+        {
+          number: "02",
+          title: "Create clarity",
+          description: "Explore practical ways AI and automation can support your existing processes.",
+        },
+        {
+          number: "03",
+          title: "Move forward",
+          description: "Build a smarter workflow that gives your team more room to focus.",
+        },
+      ].map((item) => (
+        <div
+          key={item.number}
+          className="rounded-[2rem] border border-[#E8E8E2] bg-[#F4F1E9] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-xl"
+        >
+          <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#DCE8E3] font-bold text-[#526B60]">
+            {item.number}
+          </span>
+          <h3 className="mt-7 text-2xl font-semibold text-[#17191B]">
+            {item.title}
+          </h3>
+          <p className="mt-4 leading-7 text-[#454545]">
+            {item.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* INTEGRATIONS */}
-      <section className={`${sectionStyle} bg-white`}>
+      <section className={`${sectionStyle} bg-[#DCE8E3]`}>
         <div className="mx-auto w-full max-w-7xl text-center">
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#625BEE]">
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#526B60]">
             BUILT TO FIT YOUR WORKFLOW
           </p>
-          <h2 className="mx-auto mt-5 max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl">
+          <h2 className="mx-auto mt-5 max-w-3xl text-4xl font-semibold leading-tight text-[#17191B] sm:text-5xl">
             Works with the tools your business already uses.
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[#777B91]">
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[#454545]">
             Mendly is focused on making your existing processes work better.
             These are example integration categories, not confirmed partners.
           </p>
@@ -538,7 +677,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.08 }}
-                className="flex min-h-28 items-center justify-center rounded-2xl border border-[#E2E4EF] bg-[#F7F8FC] p-5 text-center text-sm font-bold tracking-wider text-[#62677D] transition hover:-translate-y-1 hover:border-[#A99BFF] hover:bg-[#EEEDFF]"
+                className="flex min-h-28 items-center justify-center rounded-2xl border border-white bg-white p-5 text-center text-sm font-bold tracking-wider text-[#17191B] transition hover:-translate-y-1 hover:shadow-lg"
               >
                 {item}
               </motion.div>
@@ -550,23 +689,23 @@ export default function Home() {
       {/* HOW IT WORKS */}
       <section
         id="how-it-works"
-        className={`${sectionStyle} bg-[#F7F8FC]`}
+        className={`${sectionStyle} bg-[#F4F1E9]`}
       >
         <div className="mx-auto w-full max-w-7xl">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#625BEE]">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#526B60]">
               HOW IT WORKS
             </p>
-            <h2 className="mt-5 text-4xl font-semibold leading-tight sm:text-5xl">
+            <h2 className="mt-5 text-4xl font-semibold leading-tight text-[#17191B] sm:text-5xl">
               A clear path from problem to progress.
             </h2>
-            <p className="mt-6 text-lg leading-8 text-[#777B91]">
+            <p className="mt-6 text-lg leading-8 text-[#454545]">
               Every engagement starts with your business needs. Our process
               keeps the focus on finding the right solution.
             </p>
           </div>
 
-          <div className="mt-16 grid gap-6 md:grid-cols-3">
+          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {process.map((step, index) => (
               <motion.div
                 key={step.number}
@@ -574,23 +713,22 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.15 }}
-                className={`rounded-[2rem] p-8 ${
-                  index === 1
-                    ? "bg-[#EEEDFF]"
+                className={`rounded-[2rem] border border-[#E8E8E2] p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${index === 1
+                    ? "bg-[#DCE8E3]"
                     : index === 2
-                      ? "bg-[#20243A] text-white"
-                      : "bg-white"
-                }`}
+                      ? "bg-white"
+                      : "bg-[#E8E8E2]"
+                  }`}
               >
-                <p className="text-sm font-bold text-[#625BEE]">
+                <p className="text-sm font-bold text-[#526B60]">
                   STEP {step.number}
                 </p>
-                <h3 className="mt-8 text-2xl font-semibold">{step.title}</h3>
-                <p
-                  className={`mt-4 leading-7 ${
-                    index === 2 ? "text-[#D5D7E7]" : "text-[#777B91]"
-                  }`}
-                >
+
+                <h3 className="mt-8 text-2xl font-semibold text-[#17191B]">
+                  {step.title}
+                </h3>
+
+                <p className="mt-4 leading-7 text-[#454545]">
                   {step.description}
                 </p>
               </motion.div>
@@ -600,42 +738,53 @@ export default function Home() {
       </section>
 
       {/* BRAND PROMISE */}
-      <section className={`${sectionStyle} bg-white`}>
-        <div className="mx-auto w-full max-w-5xl rounded-[2rem] border border-[#E2E4EF] bg-[#F7F8FC] px-8 py-16 text-center sm:px-16">
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#625BEE]">
+      <section className={`${sectionStyle} bg-[#DCE8E3]`}>
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mx-auto w-full max-w-5xl rounded-[2rem] border border-white bg-white px-8 py-16 text-center shadow-sm sm:px-16"
+        >
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#526B60]">
             OUR PROMISE
           </p>
-          <h2 className="mx-auto mt-6 max-w-3xl font-serif text-4xl italic leading-tight sm:text-5xl">
+          <h2 className="mx-auto mt-6 max-w-3xl font-serif text-4xl italic leading-tight text-[#17191B] sm:text-5xl">
             “The best solution is the one that makes work feel simpler.”
           </h2>
-          <p className="mx-auto mt-6 max-w-xl leading-8 text-[#777B91]">
+          <p className="mx-auto mt-6 max-w-xl leading-8 text-[#454545]">
             We focus on understanding your challenges before recommending
             technology. That is how we keep every solution practical.
           </p>
-        </div>
+        </motion.div>
       </section>
 
       {/* FINAL CTA */}
-      <section className={`${sectionStyle} bg-[#20243A] text-center text-white`}>
-        <div className="mx-auto w-full max-w-4xl">
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#A99BFF]">
+      <section className={`${sectionStyle} bg-[#F4F1E9] text-center`}>
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mx-auto w-full max-w-4xl rounded-[2.5rem] border border-[#E8E8E2] bg-[#DCE8E3] px-7 py-16 shadow-sm sm:px-14 lg:py-20"
+        >
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#526B60]">
             READY FOR A BETTER WAY?
           </p>
-          <h2 className="mt-6 text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
+          <h2 className="mt-6 text-4xl font-semibold leading-tight text-[#17191B] sm:text-5xl lg:text-6xl">
             Let’s mend what’s slowing your business down.
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[#D5D7E7]">
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[#454545]">
             Start with a conversation. We’ll help you explore where AI and
             smarter workflows could make a real difference.
           </p>
           <Link
             href="/contact"
-            className="mt-9 inline-flex rounded-full bg-[#625BEE] px-8 py-4 font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#A99BFF] hover:text-[#20243A] hover:shadow-xl"
+            className="mt-9 inline-flex rounded-full bg-[#17191B] px-8 py-4 font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#526B60] hover:shadow-xl"
           >
             Let’s talk about your business ↗
           </Link>
-        </div>
+        </motion.div>
       </section>
+
     </main>
   );
 }

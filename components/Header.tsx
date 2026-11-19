@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -5,32 +6,33 @@ import { useState } from "react";
 
 const navLinks = [
   { label: "Platform", href: "/platform" },
-  { label: "Solutions", href: "/solutions" },
   { label: "How it works", href: "/how-it-works" },
   { label: "About us", href: "/about" },
+  { label: "Resources", href: "/resources" },
+  { label: "Blog", href: "/blog" },
 ];
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#E7E8F0] bg-white/90 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-[#A9C9B1]/50 bg-[#FAF7F0]/95 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
         <Link
           href="/"
           onClick={() => setMenuOpen(false)}
-          className="shrink-0 text-3xl font-extrabold tracking-tight text-[#20243A] transition-colors hover:text-[#625BEE]"
+          className="shrink-0 text-3xl font-extrabold tracking-tight text-[#1F4D3A] transition-colors duration-300 hover:text-[#F2B84B]"
         >
-          mendly<span className="text-[#625BEE]">.</span>
+          mendly<span className="text-[#F2B84B]">.</span>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-8 text-sm font-semibold text-[#62677D] md:flex">
+        <nav className="hidden items-center gap-7 text-sm font-semibold text-[#12352A] md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="transition-colors duration-200 hover:text-[#625BEE]"
+              className="transition-colors duration-300 hover:text-[#F2B84B]"
             >
               {link.label}
             </Link>
@@ -38,7 +40,7 @@ export default function Header() {
 
           <Link
             href="/contact"
-            className="rounded-full bg-[#625BEE] px-6 py-3.5 text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#4942D0] hover:shadow-lg"
+            className="rounded-full bg-[#1F4D3A] px-6 py-3.5 font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#F2B84B] hover:text-[#12352A] hover:shadow-lg"
           >
             Let's talk ↗
           </Link>
@@ -50,7 +52,7 @@ export default function Header() {
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen(!menuOpen)}
-          className="flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-xl border border-[#E2E4EF] text-[#20243A] transition-colors hover:bg-[#EEEDFF] md:hidden"
+          className="flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-xl border border-[#A9C9B1] text-[#1F4D3A] transition-colors duration-300 hover:bg-[#F2B84B] md:hidden"
         >
           <span
             className={`h-0.5 w-6 rounded-full bg-current transition-all duration-300 ${
@@ -72,7 +74,7 @@ export default function Header() {
 
       {/* Mobile Navigation */}
       <div
-        className={`overflow-hidden border-t border-[#E7E8F0] bg-white transition-all duration-300 md:hidden ${
+        className={`overflow-hidden border-t border-[#A9C9B1]/50 bg-[#FAF7F0] transition-all duration-300 md:hidden ${
           menuOpen
             ? "max-h-96 opacity-100"
             : "max-h-0 border-t-0 opacity-0"
@@ -84,7 +86,7 @@ export default function Header() {
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="rounded-xl px-4 py-3 font-semibold text-[#62677D] transition-colors hover:bg-[#EEEDFF] hover:text-[#625BEE]"
+              className="rounded-xl px-4 py-3 font-semibold text-[#12352A] transition-colors duration-300 hover:bg-[#E4F0E7] hover:text-[#1F4D3A]"
             >
               {link.label}
             </Link>
@@ -93,7 +95,7 @@ export default function Header() {
           <Link
             href="/contact"
             onClick={() => setMenuOpen(false)}
-            className="mt-2 rounded-full bg-[#625BEE] px-5 py-3.5 text-center font-semibold text-white transition-all duration-300 hover:bg-[#4942D0]"
+            className="mt-2 rounded-full bg-[#1F4D3A] px-5 py-3.5 text-center font-semibold text-white transition-all duration-300 hover:bg-[#F2B84B] hover:text-[#12352A]"
           >
             Let's talk ↗
           </Link>
