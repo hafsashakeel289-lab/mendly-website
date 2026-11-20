@@ -1,8 +1,9 @@
 
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
+
+const calendlyLink = "https://calendly.com/husnainn-akram/30min";
 
 const steps = [
   {
@@ -33,11 +34,10 @@ const steps = [
 
 export default function HowItWorksPage() {
   return (
-    <main className="min-h-screen bg-[#FAF7F0] text-[#12352A]">
-
+    <main className="min-h-screen bg-[#F4F1E9] text-[#12352A]">
       {/* Hero */}
       <section className="relative overflow-hidden px-6 py-24 lg:px-12 lg:py-32">
-        <div className="absolute -right-20 top-10 h-80 w-80 rounded-full bg-[#E4F0E7] blur-3xl" />
+        <div className="absolute -right-20 top-10 h-80 w-80 rounded-full bg-[#DCE8E3] blur-3xl" />
 
         <motion.div
           initial={{ opacity: 0, y: 25 }}
@@ -45,7 +45,7 @@ export default function HowItWorksPage() {
           transition={{ duration: 0.7 }}
           className="relative mx-auto max-w-7xl"
         >
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#789080]">
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#1F4D3A]">
             HOW IT WORKS
           </p>
 
@@ -60,12 +60,14 @@ export default function HowItWorksPage() {
             help make everyday processes easier.
           </p>
 
-          <Link
-            href="/contact"
-            className="mt-9 inline-block rounded-full bg-[#1F4D3A] px-8 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#F2B84B] hover:text-[#12352A] hover:shadow-lg"
+          <a
+            href={calendlyLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-9 inline-block rounded-full bg-[#F2B84B] px-8 py-4 font-semibold text-[#12352A] transition-all duration-300 hover:-translate-y-1 hover:bg-[#E5AA3D] hover:shadow-lg"
           >
             Let's get started ↗
-          </Link>
+          </a>
         </motion.div>
       </section>
 
@@ -73,7 +75,7 @@ export default function HowItWorksPage() {
       <section className="bg-white px-6 py-24 lg:px-12 lg:py-32">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-3xl">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#789080]">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#1F4D3A]">
               OUR PROCESS
             </p>
 
@@ -81,7 +83,7 @@ export default function HowItWorksPage() {
               A clear path to working smarter.
             </h2>
 
-            <p className="mt-6 text-lg leading-8 text-[#718277]">
+            <p className="mt-6 text-lg leading-8 text-[#52675B]">
               No unnecessary complexity or technology for its own sake.
               Just three thoughtful steps focused on making a real difference.
             </p>
@@ -97,12 +99,12 @@ export default function HowItWorksPage() {
                 transition={{ delay: index * 0.15 }}
                 className={`rounded-3xl border p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${
                   index === 1
-                    ? "border-[#A9C9B1] bg-[#E4F0E7]"
-                    : "border-[#E4F0E7] bg-[#FAF7F0]"
+                    ? "border-[#A9C9B1] bg-[#DCE8E3]"
+                    : "border-[#DCE8E3] bg-[#F4F1E9]"
                 }`}
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-bold tracking-widest text-[#789080]">
+                  <span className="text-sm font-bold tracking-widest text-[#1F4D3A]">
                     STEP {step.number}
                   </span>
 
@@ -115,7 +117,7 @@ export default function HowItWorksPage() {
                   {step.title}
                 </h3>
 
-                <p className="mt-4 leading-7 text-[#718277]">
+                <p className="mt-4 leading-7 text-[#52675B]">
                   {step.description}
                 </p>
 
@@ -129,10 +131,10 @@ export default function HowItWorksPage() {
       </section>
 
       {/* Why this approach */}
-      <section className="bg-[#E4F0E7] px-6 py-24 lg:px-12 lg:py-28">
+      <section className="bg-[#DCE8E3] px-6 py-24 lg:px-12 lg:py-28">
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#789080]">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#1F4D3A]">
               OUR PHILOSOPHY
             </p>
 
@@ -166,7 +168,7 @@ export default function HowItWorksPage() {
       {/* CTA */}
       <section className="bg-white px-6 py-24 text-center lg:py-28">
         <div className="mx-auto max-w-3xl">
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#789080]">
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#1F4D3A]">
             YOUR NEXT STEP
           </p>
 
@@ -174,20 +176,21 @@ export default function HowItWorksPage() {
             Ready to mend what slows you down?
           </h2>
 
-          <p className="mx-auto mt-6 max-w-xl leading-8 text-[#718277]">
+          <p className="mx-auto mt-6 max-w-xl leading-8 text-[#52675B]">
             Tell us where your team faces friction. Let's explore
             how a smarter workflow could look.
           </p>
 
-          <Link
-            href="/contact"
-            className="mt-9 inline-block rounded-full bg-[#1F4D3A] px-8 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#F2B84B] hover:text-[#12352A] hover:shadow-lg"
+          <a
+            href={calendlyLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-9 inline-block rounded-full bg-[#F2B84B] px-8 py-4 font-semibold text-[#12352A] transition-all duration-300 hover:-translate-y-1 hover:bg-[#E5AA3D] hover:shadow-lg"
           >
             Talk to Mendly ↗
-          </Link>
+          </a>
         </div>
       </section>
-
     </main>
   );
 }

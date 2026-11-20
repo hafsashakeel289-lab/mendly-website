@@ -12,6 +12,8 @@ const navLinks = [
   { label: "Blog", href: "/blog" },
 ];
 
+const calendlyLink = "https://calendly.com/husnainn-akram/30min";
+
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -38,12 +40,14 @@ export default function Header() {
             </Link>
           ))}
 
-          <Link
-            href="/contact"
-            className="rounded-full bg-[#1F4D3A] px-6 py-3.5 font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#F2B84B] hover:text-[#12352A] hover:shadow-lg"
+          <a
+            href={calendlyLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full bg-[#F2B84B] px-6 py-3.5 font-semibold text-[#17191B] transition-all duration-300 hover:-translate-y-1 hover:bg-[#E5AA3D] hover:shadow-lg"
           >
             Let's talk ↗
-          </Link>
+          </a>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -92,13 +96,15 @@ export default function Header() {
             </Link>
           ))}
 
-          <Link
-            href="/contact"
+          <a
+            href={calendlyLink}
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setMenuOpen(false)}
-            className="mt-2 rounded-full bg-[#1F4D3A] px-5 py-3.5 text-center font-semibold text-white transition-all duration-300 hover:bg-[#F2B84B] hover:text-[#12352A]"
+            className="mt-2 rounded-full bg-[#F2B84B] px-5 py-3.5 text-center font-semibold text-[#17191B] transition-all duration-300 hover:bg-[#E5AA3D]"
           >
             Let's talk ↗
-          </Link>
+          </a>
         </nav>
       </div>
     </header>

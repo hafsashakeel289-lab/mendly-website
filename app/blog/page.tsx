@@ -1,7 +1,6 @@
 
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 
 const articles = [
@@ -31,10 +30,12 @@ const articles = [
   },
 ];
 
+const calendlyLink = "https://calendly.com/husnainn-akram/30min";
+
 export default function BlogPage() {
   return (
-    <main className="min-h-screen bg-[#FAF7F0] text-[#12352A]">
-      <section className="bg-[#E4F0E7] px-6 py-24 lg:px-10 lg:py-32">
+    <main className="min-h-screen bg-[#F4F1E9] text-[#12352A]">
+      <section className="bg-[#DCE8E3] px-6 py-24 lg:px-10 lg:py-32">
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
@@ -60,7 +61,7 @@ export default function BlogPage() {
       <section className="px-6 py-24 lg:px-10">
         <div className="mx-auto max-w-7xl">
           <div className="mb-12">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#789080]">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#52675B]">
               LATEST INSIGHTS
             </p>
             <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">
@@ -79,10 +80,10 @@ export default function BlogPage() {
                 className="group rounded-3xl border border-[#D5E3D7] bg-white p-8 transition-all duration-300 hover:-translate-y-2 hover:border-[#F2B84B] hover:shadow-xl"
               >
                 <div className="flex items-center justify-between">
-                  <span className="rounded-full bg-[#E4F0E7] px-3 py-2 text-xs font-bold tracking-wide text-[#1F4D3A]">
+                  <span className="rounded-full bg-[#DCE8E3] px-3 py-2 text-xs font-bold tracking-wide text-[#1F4D3A]">
                     {article.category}
                   </span>
-                  <span className="text-2xl font-bold text-[#A9C9B1]">
+                  <span className="text-2xl font-bold text-[#52675B]">
                     {article.number}
                   </span>
                 </div>
@@ -91,12 +92,12 @@ export default function BlogPage() {
                   {article.title}
                 </h3>
 
-                <p className="mt-5 leading-7 text-[#718277]">
+                <p className="mt-5 leading-7 text-[#52675B]">
                   {article.description}
                 </p>
 
-                <div className="mt-9 flex items-center justify-between border-t border-[#E4F0E7] pt-5">
-                  <span className="text-sm text-[#789080]">
+                <div className="mt-9 flex items-center justify-between border-t border-[#DCE8E3] pt-5">
+                  <span className="text-sm text-[#52675B]">
                     {article.date}
                   </span>
                   <span className="font-semibold text-[#1F4D3A] transition-colors group-hover:text-[#D49A24]">
@@ -116,12 +117,15 @@ export default function BlogPage() {
         <p className="mx-auto mt-5 max-w-xl leading-7 text-[#D5E3D7]">
           Let&apos;s explore how AI can make your everyday work simpler.
         </p>
-        <Link
-          href="/contact"
-          className="mt-8 inline-block rounded-full bg-[#F2B84B] px-8 py-4 font-bold text-[#12352A] transition-all duration-300 hover:-translate-y-1 hover:bg-white"
+
+        <a
+          href={calendlyLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-8 inline-block rounded-full bg-[#F2B84B] px-8 py-4 font-bold text-[#12352A] transition-all duration-300 hover:-translate-y-1 hover:bg-[#E5AA3D]"
         >
           Talk to Mendly ↗
-        </Link>
+        </a>
       </section>
     </main>
   );

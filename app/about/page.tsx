@@ -1,7 +1,6 @@
 
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 
 const values = [
@@ -28,13 +27,14 @@ const values = [
   },
 ];
 
+const calendlyLink = "https://calendly.com/husnainn-akram/30min";
+
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-[#FAF7F0] text-[#12352A]">
-
+    <main className="min-h-screen bg-[#F4F1E9] text-[#12352A]">
       {/* Hero */}
       <section className="relative overflow-hidden px-6 py-24 lg:px-12 lg:py-32">
-        <div className="absolute -right-20 top-10 h-80 w-80 rounded-full bg-[#E4F0E7] blur-3xl" />
+        <div className="absolute -right-20 top-10 h-80 w-80 rounded-full bg-[#DCE8E3] blur-3xl" />
 
         <motion.div
           initial={{ opacity: 0, y: 25 }}
@@ -42,7 +42,7 @@ export default function AboutPage() {
           transition={{ duration: 0.7 }}
           className="relative mx-auto max-w-7xl"
         >
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#789080]">
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#52675B]">
             ABOUT MENDLY
           </p>
 
@@ -57,12 +57,14 @@ export default function AboutPage() {
             them back and discover smarter ways forward with AI.
           </p>
 
-          <Link
-            href="/contact"
-            className="mt-9 inline-block rounded-full bg-[#1F4D3A] px-8 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#F2B84B] hover:text-[#12352A] hover:shadow-lg"
+          <a
+            href={calendlyLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-9 inline-block rounded-full bg-[#F2B84B] px-8 py-4 font-semibold text-[#12352A] transition-all duration-300 hover:-translate-y-1 hover:bg-[#E5AA3D] hover:shadow-lg"
           >
             Let's talk ↗
-          </Link>
+          </a>
         </motion.div>
       </section>
 
@@ -70,14 +72,13 @@ export default function AboutPage() {
       <section className="bg-white px-6 py-24 lg:px-12 lg:py-28">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-8 md:grid-cols-2">
-
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="rounded-[2rem] bg-[#1F4D3A] p-10 text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:p-14"
             >
-              <p className="text-sm font-bold uppercase tracking-widest text-[#A9C9B1]">
+              <p className="text-sm font-bold uppercase tracking-widest text-[#DCE8E3]">
                 OUR MISSION
               </p>
 
@@ -96,9 +97,9 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.15 }}
-              className="rounded-[2rem] border border-[#D5E3D7] bg-[#E4F0E7] p-10 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:p-14"
+              className="rounded-[2rem] border border-[#D5E3D7] bg-[#DCE8E3] p-10 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:p-14"
             >
-              <p className="text-sm font-bold uppercase tracking-widest text-[#789080]">
+              <p className="text-sm font-bold uppercase tracking-widest text-[#52675B]">
                 OUR APPROACH
               </p>
 
@@ -111,16 +112,15 @@ export default function AboutPage() {
                 where AI can make a practical and valuable difference.
               </p>
             </motion.div>
-
           </div>
         </div>
       </section>
 
       {/* Values */}
-      <section className="bg-[#FAF7F0] px-6 py-24 lg:px-12 lg:py-28">
+      <section className="bg-[#F4F1E9] px-6 py-24 lg:px-12 lg:py-28">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-3xl">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#789080]">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#52675B]">
               WHAT GUIDES US
             </p>
 
@@ -128,7 +128,7 @@ export default function AboutPage() {
               Technology with a human purpose.
             </h2>
 
-            <p className="mt-6 text-lg leading-8 text-[#718277]">
+            <p className="mt-6 text-lg leading-8 text-[#52675B]">
               Our work is guided by a simple belief: the best technology
               makes people's work more meaningful.
             </p>
@@ -144,11 +144,11 @@ export default function AboutPage() {
                 transition={{ delay: index * 0.12 }}
                 className="rounded-3xl border border-[#D5E3D7] bg-white p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
               >
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#E4F0E7] text-3xl text-[#1F4D3A]">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#DCE8E3] text-3xl text-[#1F4D3A]">
                   {value.icon}
                 </div>
 
-                <p className="mt-8 text-sm font-bold text-[#A9C9B1]">
+                <p className="mt-8 text-sm font-bold text-[#52675B]">
                   {value.number}
                 </p>
 
@@ -156,7 +156,7 @@ export default function AboutPage() {
                   {value.title}
                 </h3>
 
-                <p className="mt-4 leading-7 text-[#718277]">
+                <p className="mt-4 leading-7 text-[#52675B]">
                   {value.description}
                 </p>
               </motion.article>
@@ -168,7 +168,7 @@ export default function AboutPage() {
       {/* Promise */}
       <section className="bg-[#12352A] px-6 py-24 text-center text-white lg:py-32">
         <div className="mx-auto max-w-4xl">
-          <p className="text-sm font-bold uppercase tracking-widest text-[#A9C9B1]">
+          <p className="text-sm font-bold uppercase tracking-widest text-[#DCE8E3]">
             THE MENDLY PROMISE
           </p>
 
@@ -181,15 +181,16 @@ export default function AboutPage() {
             slowing your team down and let's explore what's possible.
           </p>
 
-          <Link
-            href="/contact"
-            className="mt-9 inline-block rounded-full bg-[#F2B84B] px-8 py-4 font-bold text-[#12352A] transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-lg"
+          <a
+            href={calendlyLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-9 inline-block rounded-full bg-[#F2B84B] px-8 py-4 font-bold text-[#12352A] transition-all duration-300 hover:-translate-y-1 hover:bg-[#E5AA3D] hover:shadow-lg"
           >
             Start a conversation ↗
-          </Link>
+          </a>
         </div>
       </section>
-
     </main>
   );
 }

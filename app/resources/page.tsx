@@ -1,7 +1,6 @@
 
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 
 const resources = [
@@ -30,7 +29,7 @@ const resources = [
 
 export default function ResourcesPage() {
   return (
-    <main className="min-h-screen bg-[#FAF7F0] text-[#12352A]">
+    <main className="min-h-screen bg-[#F4F1E9] text-[#12352A]">
       <section className="px-6 pb-20 pt-20 md:px-16 md:pt-28">
         <motion.div
           initial={{ opacity: 0, y: 25 }}
@@ -38,7 +37,7 @@ export default function ResourcesPage() {
           transition={{ duration: 0.6 }}
           className="mx-auto max-w-4xl text-center"
         >
-          <span className="mb-6 inline-block rounded-full bg-[#E4F0E7] px-5 py-2 text-sm font-semibold text-[#1F4D3A]">
+          <span className="mb-6 inline-block rounded-full bg-[#DCE8E3] px-5 py-2 text-sm font-semibold text-[#1F4D3A]">
             THE MENDLY LIBRARY
           </span>
 
@@ -63,13 +62,13 @@ export default function ResourcesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.12 }}
-              className="rounded-3xl border border-[#A9C9B1]/50 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-lg"
+              className="rounded-3xl border border-[#DCE8E3] bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-lg"
             >
               <div className="mb-12 flex items-center justify-between">
                 <span className="text-sm font-bold text-[#1F4D3A]">
                   {item.category}
                 </span>
-                <span className="text-sm text-[#A9C9B1]">
+                <span className="text-sm text-[#52675B]">
                   {item.number}
                 </span>
               </div>
@@ -80,7 +79,7 @@ export default function ResourcesPage() {
                 {item.description}
               </p>
 
-              <div className="mt-8 border-t border-[#E4F0E7] pt-5 text-sm font-semibold text-[#1F4D3A]">
+              <div className="mt-8 border-t border-[#DCE8E3] pt-5 text-sm font-semibold text-[#1F4D3A]">
                 More coming soon
               </div>
             </motion.article>
@@ -88,19 +87,22 @@ export default function ResourcesPage() {
         </div>
       </section>
 
-      <section className="bg-[#E4F0E7] px-6 py-20 text-center md:px-16">
+      <section className="bg-[#DCE8E3] px-6 py-20 text-center md:px-16">
         <h2 className="text-3xl font-extrabold md:text-5xl">
           Ready to find your bottleneck?
         </h2>
         <p className="mx-auto mt-5 max-w-xl leading-7 text-[#52675B]">
           Let&apos;s explore how AI can make your business work better.
         </p>
-        <Link
-          href="/contact"
-          className="mt-8 inline-block rounded-full bg-[#1F4D3A] px-8 py-4 font-semibold text-white transition duration-300 hover:-translate-y-1 hover:bg-[#F2B84B] hover:text-[#12352A]"
+
+        <a
+          href="https://calendly.com/husnainn-akram/30min"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-8 inline-block rounded-full bg-[#F2B84B] px-8 py-4 font-semibold text-[#12352A] transition duration-300 hover:-translate-y-1 hover:bg-[#E5AA3D]"
         >
           Let&apos;s talk →
-        </Link>
+        </a>
       </section>
     </main>
   );

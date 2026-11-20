@@ -35,16 +35,18 @@ export default function Footer() {
               We find your biggest bottleneck and mend it with AI.
             </p>
 
-            <Link
-              href="/contact"
-              className="mt-7 inline-block rounded-full bg-[#F2B84B] px-6 py-3 font-semibold text-[#12352A] transition-all duration-300 hover:-translate-y-1 hover:bg-[#A9C9B1] hover:shadow-lg"
+            <a
+              href="https://calendly.com/husnainn-akram/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-7 inline-block rounded-full bg-[#F2B84B] px-6 py-3 font-semibold text-[#12352A] transition-all duration-300 hover:-translate-y-1 hover:bg-[#E5AA3D] hover:shadow-lg"
             >
               Let&apos;s talk →
-            </Link>
+            </a>
           </div>
 
           <div>
-            <h3 className="mb-5 font-bold text-[#A9C9B1]">
+            <h3 className="mb-5 font-bold text-[#1F4D3A]">
               Company
             </h3>
             <ul className="space-y-4">
@@ -62,7 +64,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-5 font-bold text-[#A9C9B1]">
+            <h3 className="mb-5 font-bold text-[#1F4D3A]">
               Explore
             </h3>
             <ul className="space-y-4">
@@ -80,7 +82,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-5 font-bold text-[#A9C9B1]">
+            <h3 className="mb-5 font-bold text-[#1F4D3A]">
               Get in touch
             </h3>
             <p className="mb-4 leading-7 text-[#E4F0E7]">
