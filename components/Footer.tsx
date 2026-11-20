@@ -20,7 +20,7 @@ const legalLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#12352A] text-[#FAF7F0]">
+    <footer className="bg-[#12352A] text-[#F4F1E9]">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div>
@@ -31,7 +31,7 @@ export default function Footer() {
               mendly<span className="text-[#F2B84B]">.</span>
             </Link>
 
-            <p className="mt-5 max-w-xs leading-7 text-[#E4F0E7]">
+            <p className="mt-5 max-w-xs leading-7 text-[#DCE8E3]">
               We find your biggest bottleneck and mend it with AI.
             </p>
 
@@ -46,7 +46,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-5 font-bold text-[#1F4D3A]">
+            <h3 className="mb-5 font-bold text-[#DCE8E3]">
               Company
             </h3>
             <ul className="space-y-4">
@@ -64,7 +64,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-5 font-bold text-[#1F4D3A]">
+            <h3 className="mb-5 font-bold text-[#DCE8E3]">
               Explore
             </h3>
             <ul className="space-y-4">
@@ -82,10 +82,10 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-5 font-bold text-[#1F4D3A]">
+            <h3 className="mb-5 font-bold text-[#DCE8E3]">
               Get in touch
             </h3>
-            <p className="mb-4 leading-7 text-[#E4F0E7]">
+            <p className="mb-4 leading-7 text-[#DCE8E3]">
               Have a workflow challenge? Let&apos;s find a smarter way forward.
             </p>
             <Link
@@ -97,7 +97,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-5 border-t border-[#A9C9B1]/30 pt-7 text-sm text-[#A9C9B1] sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-14 flex flex-col gap-5 border-t border-[#DCE8E3]/30 pt-7 text-sm text-[#DCE8E3] sm:flex-row sm:items-center sm:justify-between">
           <p>© 2026 Mendly. All rights reserved.</p>
 
           <div className="flex flex-wrap gap-5">

@@ -18,7 +18,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#A9C9B1]/50 bg-[#FAF7F0]/95 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-[#DCE8E3]/70 bg-[#F4F1E9]/95 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
         <Link
           href="/"
@@ -44,9 +44,9 @@ export default function Header() {
             href={calendlyLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-[#F2B84B] px-6 py-3.5 font-semibold text-[#17191B] transition-all duration-300 hover:-translate-y-1 hover:bg-[#E5AA3D] hover:shadow-lg"
+            className="rounded-full bg-[#F2B84B] px-6 py-3.5 font-semibold text-[#12352A] transition-all duration-300 hover:-translate-y-1 hover:bg-[#E5AA3D] hover:shadow-lg"
           >
-            Let's talk ↗
+            Let&apos;s talk ↗
           </a>
         </nav>
 
@@ -56,7 +56,7 @@ export default function Header() {
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen(!menuOpen)}
-          className="flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-xl border border-[#A9C9B1] text-[#1F4D3A] transition-colors duration-300 hover:bg-[#F2B84B] md:hidden"
+          className="flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-xl border border-[#DCE8E3] text-[#1F4D3A] transition-colors duration-300 hover:bg-[#F2B84B] md:hidden"
         >
           <span
             className={`h-0.5 w-6 rounded-full bg-current transition-all duration-300 ${
@@ -78,7 +78,7 @@ export default function Header() {
 
       {/* Mobile Navigation */}
       <div
-        className={`overflow-hidden border-t border-[#A9C9B1]/50 bg-[#FAF7F0] transition-all duration-300 md:hidden ${
+        className={`overflow-hidden border-t border-[#DCE8E3]/70 bg-[#F4F1E9] transition-all duration-300 md:hidden ${
           menuOpen
             ? "max-h-96 opacity-100"
             : "max-h-0 border-t-0 opacity-0"
@@ -90,7 +90,7 @@ export default function Header() {
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="rounded-xl px-4 py-3 font-semibold text-[#12352A] transition-colors duration-300 hover:bg-[#E4F0E7] hover:text-[#1F4D3A]"
+              className="rounded-xl px-4 py-3 font-semibold text-[#12352A] transition-colors duration-300 hover:bg-[#DCE8E3] hover:text-[#1F4D3A]"
             >
               {link.label}
             </Link>
@@ -101,9 +101,9 @@ export default function Header() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMenuOpen(false)}
-            className="mt-2 rounded-full bg-[#F2B84B] px-5 py-3.5 text-center font-semibold text-[#17191B] transition-all duration-300 hover:bg-[#E5AA3D]"
+            className="mt-2 rounded-full bg-[#F2B84B] px-5 py-3.5 text-center font-semibold text-[#12352A] transition-all duration-300 hover:bg-[#E5AA3D]"
           >
-            Let's talk ↗
+            Let&apos;s talk ↗
           </a>
         </nav>
       </div>
