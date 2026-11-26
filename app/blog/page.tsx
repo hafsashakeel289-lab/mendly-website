@@ -1,9 +1,12 @@
 
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { createClient } from "@/utils/supabase/client";
 
-const articles = [
+const demoArticles = [
   {
     category: "AI & BUSINESS",
     title: "Where should your business start with AI?",
@@ -32,7 +35,42 @@ const articles = [
 
 const calendlyLink = "https://calendly.com/husnainn-akram/30min";
 
+type Blog = {
+  id: string;
+  title: string;
+  slug: string;
+  description: string;
+  category: string | null;
+  cover_image: string | null;
+  created_at: string;
+};
+
 export default function BlogPage() {
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+
+  useEffect(() => {
+    async function fetchBlogs() {
+      const supabase = createClient();
+
+      const { data, error } = await supabase
+        .from("blogs")
+        .select(
+          "id, title, slug, description, category, cover_image, created_at"
+        )
+        .eq("status", "published")
+        .order("created_at", { ascending: false });
+
+      if (error) {
+        console.error("Could not load published blogs:", error.message);
+        return;
+      }
+
+      setBlogs(data || []);
+    }
+
+    fetchBlogs();
+  }, []);
+
   return (
     <main className="min-h-screen bg-[#F4F1E9] text-[#12352A]">
       <section className="bg-[#DCE8E3] px-6 py-24 lg:px-10 lg:py-32">
@@ -70,7 +108,45 @@ export default function BlogPage() {
           </div>
 
           <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
-            {articles.map((article, index) => (
+
+            {blogs.map((blog, index) => (
+              <motion.article
+                key={blog.id}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.12 }}
+                className="group rounded-3xl border border-[#D5E3D7] bg-white p-8 transition-all duration-300 hover:-translate-y-2 hover:border-[#F2B84B] hover:shadow-xl"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="rounded-full bg-[#DCE8E3] px-3 py-2 text-xs font-bold tracking-wide text-[#1F4D3A]">
+                    {blog.category || "GENERAL"}
+                  </span>
+                  <span className="text-sm text-[#52675B]">
+                    {new Date(blog.created_at).toLocaleDateString("en-GB")}
+                  </span>
+                </div>
+
+                <h3 className="mt-10 text-2xl font-semibold leading-snug">
+                  {blog.title}
+                </h3>
+
+                <p className="mt-5 leading-7 text-[#52675B]">
+                  {blog.description}
+                </p>
+
+                <div className="mt-9 border-t border-[#DCE8E3] pt-5">
+                  <Link
+                    href={`/blog/${blog.slug}`}
+                    className="font-semibold text-[#1F4D3A] transition-colors group-hover:text-[#D49A24]"
+                  >
+                    Read article ↗
+                  </Link>
+                </div>
+              </motion.article>
+            ))}
+
+            {demoArticles.map((article, index) => (
               <motion.article
                 key={article.number}
                 initial={{ opacity: 0, y: 25 }}
@@ -106,6 +182,7 @@ export default function BlogPage() {
                 </div>
               </motion.article>
             ))}
+
           </div>
         </div>
       </section>

@@ -5,13 +5,15 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 const C = {
-  cream: "#F4F1E9",
+  cream: "#F2E5C8",
   sage: "#DCE8E3",
   grey: "#E8E8E2",
   charcoal: "#12352A",
   body: "#1F4D3A",
   white: "#FFFFFF",
   green: "#1F4D3A",
+  warm: "#E8D5A9",
+  goldTint: "#E8C77F",
 };
 
 const calendlyLink = "https://calendly.com/husnainn-akram/30min";
@@ -117,12 +119,13 @@ export default function Home() {
   const logos = [...sampleCompanies, ...sampleCompanies];
 
   return (
-    <main className="overflow-hidden bg-[#F4F1E9] text-[#12352A]">
+    <main className="overflow-hidden bg-[#F2E5C8] text-[#12352A]">
       {/* HERO SECTION */}
-      <section className="relative flex min-h-[760px] items-center overflow-hidden bg-[#F4F1E9] px-6 py-24 lg:px-10">
+      <section className="relative flex min-h-[760px] items-center overflow-hidden bg-[#F2E5C8] px-6 py-24 lg:px-10">
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <div className="absolute -left-40 top-10 h-[420px] w-[420px] rounded-full bg-[#DCE8E3] opacity-60 blur-[120px]" />
-          <div className="absolute -right-20 bottom-0 h-[450px] w-[450px] rounded-full bg-[#E8E8E2] opacity-80 blur-[120px]" />
+          <div className="absolute -left-40 top-10 h-[420px] w-[420px] rounded-full bg-[#DCE8E3] opacity-70 blur-[120px]" />
+          <div className="absolute -right-20 bottom-0 h-[500px] w-[500px] rounded-full bg-[#E8C77F] opacity-75 blur-[110px]" />
+          <div className="absolute right-[15%] top-[5%] h-[260px] w-[260px] rounded-full bg-[#E8D5A9] opacity-50 blur-[100px]" />
           <div className="absolute inset-0 opacity-[0.12] [background-image:radial-gradient(#1F4D3A_1px,transparent_1px)] [background-size:28px_28px]" />
         </div>
 
@@ -168,7 +171,7 @@ export default function Home() {
 
               <a
                 href="#how-it-works"
-                className="rounded-full border border-[#1F4D3A]/40 bg-white/60 px-7 py-4 font-semibold text-[#12352A] transition-all duration-300 hover:-translate-y-1 hover:border-[#1F4D3A] hover:bg-[#DCE8E3]"
+                className="rounded-full border border-[#1F4D3A]/40 bg-white/70 px-7 py-4 font-semibold text-[#12352A] transition-all duration-300 hover:-translate-y-1 hover:border-[#1F4D3A] hover:bg-[#DCE8E3]"
               >
                 See how it works
               </a>
@@ -253,7 +256,7 @@ export default function Home() {
                           repeat: Infinity,
                           delay: index * 0.5,
                         }}
-                        className="rounded-2xl border bg-[#F4F1E9] px-2 py-5"
+                        className="rounded-2xl border bg-[#F2E5C8] px-2 py-5"
                       >
                         <span className="text-xs font-semibold text-[#1F4D3A]">
                           {item[0]}
@@ -266,7 +269,7 @@ export default function Home() {
                   ))}
                 </div>
 
-                <div className="mt-6 rounded-2xl border border-[#E8E8E2] bg-[#F4F1E9] p-5">
+                <div className="mt-6 rounded-2xl border border-[#E8D5A9] bg-[#F2E5C8] p-5">
                   <div className="flex items-center justify-between gap-2">
                     <p className="text-sm font-semibold text-[#12352A]">
                       Workflow analysis
@@ -287,7 +290,7 @@ export default function Home() {
                           <span className="text-[#1F4D3A]">{item[0]}</span>
                           <span className="font-medium text-[#1F4D3A]">{item[1]}</span>
                         </div>
-                        <div className="h-2 overflow-hidden rounded-full bg-[#E8E8E2]">
+                        <div className="h-2 overflow-hidden rounded-full bg-[#E8D5A9]">
                           <motion.div
                             initial={{ width: "0%" }}
                             animate={{ width: `${85 - index * 15}%` }}
@@ -329,7 +332,7 @@ export default function Home() {
             <motion.div
               animate={{ y: [0, 12, 0], rotate: [4, 1, 4] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-5 right-0 z-20 rounded-2xl border border-[#E8E8E2] bg-[#DCE8E3] p-4 text-[#12352A] shadow-xl"
+              className="absolute -bottom-5 right-0 z-20 rounded-2xl border border-[#E8D5A9] bg-[#E8D5A9] p-4 text-[#12352A] shadow-xl"
             >
               <p className="text-xs text-[#1F4D3A]">A smarter workflow</p>
               <p className="mt-1 font-bold">Connected by AI ↗</p>
@@ -339,7 +342,7 @@ export default function Home() {
       </section>
 
       {/* TRUSTED BY */}
-      <section className="overflow-hidden bg-[#F4F1E9] px-6 py-10 lg:px-10 lg:py-12">
+      <section className="overflow-hidden bg-[#F2E5C8] px-6 py-10 lg:px-10 lg:py-12">
         <div className="mx-auto w-full max-w-7xl">
           <div className="text-center">
             <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#1F4D3A]">
@@ -354,8 +357,8 @@ export default function Home() {
           </div>
 
           <div className="relative mt-8 overflow-hidden">
-            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white to-transparent sm:w-28" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white to-transparent sm:w-28" />
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[#F2E5C8] to-transparent sm:w-28" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[#F2E5C8] to-transparent sm:w-28" />
 
             <motion.div
               animate={{ x: ["0%", "-50%"] }}
@@ -432,7 +435,7 @@ export default function Home() {
                 ].map((item) => (
                   <div
                     key={item[0]}
-                    className="rounded-2xl bg-[#F4F1E9] p-5 transition hover:-translate-y-1 hover:bg-[#DCE8E3]"
+                    className="rounded-2xl bg-[#F2E5C8] p-5 transition hover:-translate-y-1 hover:bg-[#E8D5A9]"
                   >
                     <span className="text-xs font-bold text-[#1F4D3A]">
                       {item[0]}
@@ -508,7 +511,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="relative mx-auto w-full max-w-lg"
           >
-            <div className="absolute -inset-5 rounded-[3rem] bg-[#DCE8E3] blur-3xl opacity-70" />
+            <div className="absolute -inset-5 rounded-[3rem] bg-[#E8D5A9] blur-3xl opacity-70" />
             <div className="relative rounded-[2rem] border border-white bg-white p-7 shadow-xl">
               <div className="flex items-center justify-between">
                 <span className="text-sm font-semibold text-[#1F4D3A]">
@@ -525,7 +528,7 @@ export default function Home() {
                 ].map((item, index) => (
                   <div
                     key={item[0]}
-                    className="flex items-center gap-5 rounded-2xl border border-[#E8E8E2] bg-[#F4F1E9] p-5"
+                    className="flex items-center gap-5 rounded-2xl border border-[#E8D5A9] bg-[#F2E5C8] p-5"
                   >
                     <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#DCE8E3] font-bold text-[#12352A]">
                       {item[0]}
@@ -545,7 +548,7 @@ export default function Home() {
       </section>
 
       {/* BENEFITS */}
-      <section className={`${sectionStyle} bg-[#F4F1E9]`}>
+      <section className={`${sectionStyle} bg-[#F2E5C8]`}>
         <div className="mx-auto grid w-full max-w-7xl items-center gap-14 lg:grid-cols-2">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#1F4D3A]">
@@ -571,9 +574,9 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.12 }}
-                className="flex gap-5 rounded-3xl border border-[#E8E8E2] bg-white p-6 transition-all hover:-translate-y-1 hover:shadow-lg"
+                className="flex gap-5 rounded-3xl border border-[#E8D5A9] bg-white p-6 transition-all hover:-translate-y-1 hover:shadow-lg"
               >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#DCE8E3] text-2xl text-[#1F4D3A]">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#E8D5A9] text-2xl text-[#1F4D3A]">
                   {benefit.icon}
                 </div>
                 <div>
@@ -625,9 +628,9 @@ export default function Home() {
             ].map((item) => (
               <div
                 key={item.number}
-                className="rounded-[2rem] border border-[#E8E8E2] bg-[#F4F1E9] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-xl"
+                className="rounded-[2rem] border border-[#E8D5A9] bg-[#F2E5C8] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-xl"
               >
-                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#DCE8E3] font-bold text-[#1F4D3A]">
+                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#E8D5A9] font-bold text-[#1F4D3A]">
                   {item.number}
                 </span>
                 <h3 className="mt-7 text-2xl font-semibold text-[#12352A]">
@@ -676,7 +679,7 @@ export default function Home() {
       {/* HOW IT WORKS */}
       <section
         id="how-it-works"
-        className={`${sectionStyle} bg-[#F4F1E9]`}
+        className={`${sectionStyle} bg-[#F2E5C8]`}
       >
         <div className="mx-auto w-full max-w-7xl">
           <div className="mx-auto max-w-3xl text-center">
@@ -700,12 +703,12 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.15 }}
-                className={`rounded-[2rem] border border-[#E8E8E2] p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${
+                className={`rounded-[2rem] border border-[#E8D5A9] p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${
                   index === 1
                     ? "bg-[#DCE8E3]"
                     : index === 2
                       ? "bg-white"
-                      : "bg-[#E8E8E2]"
+                      : "bg-[#E8D5A9]"
                 }`}
               >
                 <p className="text-sm font-bold text-[#1F4D3A]">
@@ -747,12 +750,12 @@ export default function Home() {
       </section>
 
       {/* FINAL CTA */}
-      <section className={`${sectionStyle} bg-[#F4F1E9] text-center`}>
+      <section className={`${sectionStyle} bg-[#F2E5C8] text-center`}>
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mx-auto w-full max-w-4xl rounded-[2.5rem] border border-[#E8E8E2] bg-[#DCE8E3] px-7 py-16 shadow-sm sm:px-14 lg:py-20"
+          className="mx-auto w-full max-w-4xl rounded-[2.5rem] border border-[#E8D5A9] bg-[#E8D5A9] px-7 py-16 shadow-sm sm:px-14 lg:py-20"
         >
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#1F4D3A]">
             READY FOR A BETTER WAY?
