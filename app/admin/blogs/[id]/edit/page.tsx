@@ -2,16 +2,19 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@/utils/supabase/client";
 
-export default function EditBlogPage() {
-  const params = useParams();
+type Props = {
+  params: Promise<{ id: string }>;
+};
+
+export default function EditBlogPage({ params }: Props) {
   const router = useRouter();
   const supabase = createClient();
 
-  const blogId = params.id as string;
+  const [blogId, setBlogId] = useState("");
 
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -27,9 +30,16 @@ export default function EditBlogPage() {
   const [currentImage, setCurrentImage] = useState("");
 
   useEffect(() => {
+    let cancelled = false;
+
     async function loadBlog() {
-      if (!blogId || blogId === "undefined") {
-        alert("Invalid blog ID. Please open Edit from the dashboard.");
+      const { id } = await params;
+
+      if (cancelled) return;
+
+      setBlogId(id);
+
+      if (!id) {
         router.push("/admin");
         return;
       }
@@ -37,6 +47,8 @@ export default function EditBlogPage() {
       const {
         data: { user },
       } = await supabase.auth.getUser();
+
+      if (cancelled) return;
 
       if (!user) {
         router.push("/admin/login");
@@ -49,6 +61,8 @@ export default function EditBlogPage() {
         .eq("id", user.id)
         .maybeSingle();
 
+      if (cancelled) return;
+
       if (!admin) {
         router.push("/admin/login");
         return;
@@ -57,8 +71,10 @@ export default function EditBlogPage() {
       const { data: blog, error } = await supabase
         .from("blogs")
         .select("*")
-        .eq("id", blogId)
+        .eq("id", id)
         .maybeSingle();
+
+      if (cancelled) return;
 
       if (error || !blog) {
         alert(error?.message || "Blog not found.");
@@ -81,7 +97,11 @@ export default function EditBlogPage() {
     }
 
     loadBlog();
-  }, [blogId, router]);
+
+    return () => {
+      cancelled = true;
+    };
+  }, [params, router]);
 
   async function handleSubmit(
     event: React.FormEvent<HTMLFormElement>,
@@ -89,7 +109,7 @@ export default function EditBlogPage() {
   ) {
     event.preventDefault();
 
-    if (!blogId || blogId === "undefined") {
+    if (!blogId) {
       alert("Invalid blog ID.");
       return;
     }
@@ -127,8 +147,10 @@ export default function EditBlogPage() {
         category,
         cover_image: imageUrl,
         status: newStatus,
-        published_at: publishDate
-          ? new Date(`${publishDate}T12:00:00`).toISOString()
+        published_at: newStatus === "published"
+          ? (publishDate
+              ? new Date(`${publishDate}T12:00:00`).toISOString()
+              : new Date().toISOString())
           : null,
       })
       .eq("id", blogId);
@@ -155,10 +177,7 @@ export default function EditBlogPage() {
   return (
     <div className="min-h-screen bg-[#F7F8F6] px-6 py-12">
       <div className="mx-auto max-w-3xl">
-        <Link
-          href="/admin"
-          className="text-sm font-bold text-[#1F4D3A]"
-        >
+        <Link href="/admin" className="text-sm font-bold text-[#1F4D3A]">
           ← Back to Dashboard
         </Link>
 
@@ -182,9 +201,7 @@ export default function EditBlogPage() {
           </div>
 
           <div>
-            <label className="mb-2 block font-semibold">
-              Short Description *
-            </label>
+            <label className="mb-2 block font-semibold">Short Description *</label>
             <textarea
               required
               value={description}
@@ -195,9 +212,7 @@ export default function EditBlogPage() {
           </div>
 
           <div>
-            <label className="mb-2 block font-semibold">
-              Full Blog Content *
-            </label>
+            <label className="mb-2 block font-semibold">Full Blog Content *</label>
             <textarea
               required
               value={content}
@@ -208,10 +223,7 @@ export default function EditBlogPage() {
           </div>
 
           <div>
-            <label className="mb-2 block font-semibold">
-              Current Cover Image
-            </label>
-
+            <label className="mb-2 block font-semibold">Current Cover Image</label>
             {currentImage ? (
               <img
                 src={currentImage}
@@ -219,22 +231,16 @@ export default function EditBlogPage() {
                 className="mb-3 h-48 w-full rounded-xl object-cover"
               />
             ) : (
-              <p className="text-sm text-gray-500">
-                No cover image uploaded.
-              </p>
+              <p className="text-sm text-gray-500">No cover image uploaded.</p>
             )}
           </div>
 
           <div>
-            <label className="mb-2 block font-semibold">
-              Replace Cover Image
-            </label>
+            <label className="mb-2 block font-semibold">Replace Cover Image</label>
             <input
               type="file"
               accept="image/*"
-              onChange={(e) =>
-                setImage(e.target.files?.[0] || null)
-              }
+              onChange={(e) => setImage(e.target.files?.[0] || null)}
               className="w-full rounded-xl border p-3"
             />
           </div>
@@ -269,9 +275,7 @@ export default function EditBlogPage() {
               disabled={saving}
               onClick={(e) =>
                 handleSubmit(
-                  {
-                    preventDefault: () => {},
-                  } as React.FormEvent<HTMLFormElement>,
+                  { preventDefault: () => {} } as React.FormEvent<HTMLFormElement>,
                   "draft"
                 )
               }
@@ -285,9 +289,7 @@ export default function EditBlogPage() {
               disabled={saving}
               onClick={(e) =>
                 handleSubmit(
-                  {
-                    preventDefault: () => {},
-                  } as React.FormEvent<HTMLFormElement>,
+                  { preventDefault: () => {} } as React.FormEvent<HTMLFormElement>,
                   "published"
                 )
               }
