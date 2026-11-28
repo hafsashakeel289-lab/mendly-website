@@ -12,12 +12,15 @@ export default function AdminLoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [resetMode, setResetMode] = useState(false);
 
   async function handleLogin(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError("");
+    setSuccess("");
     setLoading(true);
 
     try {
@@ -55,6 +58,41 @@ export default function AdminLoginPage() {
     }
   }
 
+  async function handleForgotPassword(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setError("");
+    setSuccess("");
+
+    if (!email.trim()) {
+      setError("Please enter your email address first.");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const supabase = createClient();
+
+      const { error } = await supabase.auth.resetPasswordForEmail(
+        email.trim(),
+        {
+          redirectTo: `${window.location.origin}/admin/reset-password`,
+        }
+      );
+
+      if (error) {
+        setError(error.message);
+        return;
+      }
+
+      setSuccess("Password reset link sent! Please check your email inbox.");
+    } catch {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <main className="flex min-h-screen items-center justify-center bg-[#F4F1E9] px-5 py-12 text-[#12352A]">
       <div className="w-full max-w-md">
@@ -67,64 +105,132 @@ export default function AdminLoginPage() {
             <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#52675B]">
               Admin Portal
             </p>
-            <h1 className="text-3xl font-bold">Welcome back</h1>
+            <h1 className="text-3xl font-bold">
+              {resetMode ? "Reset password" : "Welcome back"}
+            </h1>
             <p className="mt-3 text-sm text-[#52675B]">
-              Sign in to manage your Mendly blog.
+              {resetMode
+                ? "Enter your email to receive a password reset link."
+                : "Sign in to manage your Mendly blog."}
             </p>
           </div>
 
-          <form onSubmit={handleLogin} className="space-y-5">
-            <div>
-              <label className="mb-2 block text-sm font-semibold">
-                Email address
-              </label>
-              <input
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Admin email"
-                className="w-full rounded-xl border border-[#DCE8E3] bg-[#FAF7F0] px-4 py-3 outline-none focus:border-[#1F4D3A]"
-              />
-            </div>
-
-            <div>
-              <label className="mb-2 block text-sm font-semibold">
-                Password
-              </label>
-              <div className="relative">
+          {resetMode ? (
+            <form onSubmit={handleForgotPassword} className="space-y-5">
+              <div>
+                <label className="mb-2 block text-sm font-semibold">
+                  Email address
+                </label>
                 <input
-                  type={showPassword ? "text" : "password"}
+                  type="email"
                   required
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Your password"
-                  className="w-full rounded-xl border border-[#DCE8E3] bg-[#FAF7F0] px-4 py-3 pr-20 outline-none focus:border-[#1F4D3A]"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Admin email"
+                  className="w-full rounded-xl border border-[#DCE8E3] bg-[#FAF7F0] px-4 py-3 outline-none focus:border-[#1F4D3A]"
                 />
+              </div>
+
+              {error && (
+                <p className="rounded-xl bg-red-50 p-3 text-sm text-red-700">
+                  {error}
+                </p>
+              )}
+
+              {success && (
+                <p className="rounded-xl bg-green-50 p-3 text-sm text-green-700">
+                  {success}
+                </p>
+              )}
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full rounded-full bg-[#F2B84B] px-6 py-4 font-bold text-[#12352A] transition hover:bg-[#E5AA3D] disabled:opacity-60"
+              >
+                {loading ? "Sending..." : "Send Reset Link"}
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setResetMode(false);
+                  setError("");
+                  setSuccess("");
+                }}
+                className="w-full text-sm font-semibold text-[#52675B] hover:underline"
+              >
+                ← Back to Login
+              </button>
+            </form>
+          ) : (
+            <form onSubmit={handleLogin} className="space-y-5">
+              <div>
+                <label className="mb-2 block text-sm font-semibold">
+                  Email address
+                </label>
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Admin email"
+                  className="w-full rounded-xl border border-[#DCE8E3] bg-[#FAF7F0] px-4 py-3 outline-none focus:border-[#1F4D3A]"
+                />
+              </div>
+
+              <div>
+                <label className="mb-2 block text-sm font-semibold">
+                  Password
+                </label>
+                <div className="relative">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    required
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Your password"
+                    className="w-full rounded-xl border border-[#DCE8E3] bg-[#FAF7F0] px-4 py-3 pr-20 outline-none focus:border-[#1F4D3A]"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-sm font-semibold"
+                  >
+                    {showPassword ? "Hide" : "Show"}
+                  </button>
+                </div>
+              </div>
+
+              <div className="text-right">
                 <button
                   type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-sm font-semibold"
+                  onClick={() => {
+                    setResetMode(true);
+                    setError("");
+                    setSuccess("");
+                  }}
+                  className="text-sm font-semibold text-[#1F4D3A] hover:underline"
                 >
-                  {showPassword ? "Hide" : "Show"}
+                  Forgot Password?
                 </button>
               </div>
-            </div>
 
-            {error && (
-              <p className="rounded-xl bg-red-50 p-3 text-sm text-red-700">
-                {error}
-              </p>
-            )}
+              {error && (
+                <p className="rounded-xl bg-red-50 p-3 text-sm text-red-700">
+                  {error}
+                </p>
+              )}
 
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full rounded-full bg-[#F2B84B] px-6 py-4 font-bold text-[#12352A] transition hover:bg-[#E5AA3D] disabled:opacity-60"
-            >
-              {loading ? "Signing in..." : "Sign in to Admin"}
-            </button>
-          </form>
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full rounded-full bg-[#F2B84B] px-6 py-4 font-bold text-[#12352A] transition hover:bg-[#E5AA3D] disabled:opacity-60"
+              >
+                {loading ? "Signing in..." : "Sign in to Admin"}
+              </button>
+            </form>
+          )}
 
           <p className="mt-7 text-center text-sm text-[#52675B]">
             <Link href="/" className="font-semibold hover:underline">
